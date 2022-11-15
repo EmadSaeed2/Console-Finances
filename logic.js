@@ -3,7 +3,7 @@ console.log('Financial Analysis\n' + '----------------');
 // Get Total Months
 var totalMonths = finances.length;
 
-console.log('\nTotal Months: ' + totalMonths);
+console.log('Total Months: ' + totalMonths);
 
 /**********************************************************************/
 
