@@ -22,12 +22,15 @@ console.log('Net Total: $' + netTotal);
 var changesArr = [];
 var totalChange = 0;
 
-// Comparing each month with the previous
+// Comparing each month with the previous once
 for (var i = 0; i < finances.length - 1; i++) {
+    var a = finances[i][1];
+    var b = finances[i + 1][1];
+
     if (finances[i][1] > finances[i + 1][1]) { // if lose - negative value
-        change = (finances[i][1] - finances[i + 1][1]) * -1;
+        change = (Math.abs(a - b)) * -1;
     } else { // if profit - positive value
-        change = finances[i + 1][1] - finances[i][1];
+        change = Math.abs(a - b);
     }
     totalChange += change;
     changesArr.push(change);
@@ -38,7 +41,7 @@ var averageChange = totalChange / (finances.length - 1);
 console.log('Average Change: $' + Math.round(averageChange * 100) / 100);
 
 // Sort Changes Array ascending
-var sortedChangesArr = changesArr.concat().sort(function (a, b) { return a - b }); // using .concat() to make a copy and not to change the original array (changesArr) 
+var sortedChangesArr = changesArr.concat().sort(function (x, y) { return x - y }); // using .concat() to make a copy and not to change the original array (changesArr) 
 
 // console.log(changesArr);
 // console.log(sortedChangesArr);
